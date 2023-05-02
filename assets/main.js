@@ -208,6 +208,8 @@ function linkTicket(id, relationship) {
     }
     var externalTicketTagText = 'lnkt:' + invertRelationship(relationship) + ':' + this_ticket_id;
     var thisTicketTagText = 'lnkt:' + relationship + ':' + id;
+    var externalTicketRelationshipTag = 'lnkt:' + invertRelationship(relationship);
+    var thisTicketRelationshipTag = 'lnkt:' + relationship;
     if (debug) {
       console.log(externalTicketTagText);
       console.log(thisTicketTagText);
@@ -220,7 +222,7 @@ function linkTicket(id, relationship) {
       type: 'PUT',
       contentType: 'application/json',
       data: JSON.stringify({
-        "tags": [externalTicketTagText]
+        "tags": [externalTicketTagText, externalTicketRelationshipTag]
       })
     }).then(
       function(data, response) {
@@ -243,7 +245,7 @@ function linkTicket(id, relationship) {
       type: 'PUT',
       contentType: 'application/json',
       data: JSON.stringify({
-        "tags": [thisTicketTagText]
+        "tags": [thisTicketTagText, thisTicketRelationshipTag]
       })
     }).then(
       function(data, response) {
@@ -281,6 +283,8 @@ function unlinkTicket(id, relationship) {
     }
     var externalTicketTagText = 'lnkt:' + invertRelationship(relationship) + ':' + this_ticket_id;
     var thisTicketTagText = 'lnkt:' + relationship + ':' + id;
+    var externalTicketRelationshipTag = 'lnkt:' + invertRelationship(relationship);
+    var thisTicketRelationshipTag = 'lnkt:' + relationship;
     if (debug) {
       console.log(externalTicketTagText);
       console.log(thisTicketTagText);
@@ -293,7 +297,7 @@ function unlinkTicket(id, relationship) {
       type: 'DELETE',
       contentType: 'application/json',
       data: JSON.stringify({
-        "tags": [externalTicketTagText]
+        "tags": [externalTicketTagText, externalTicketRelationshipTag]
       })
     }).then(
       function(data, response) {
@@ -316,7 +320,7 @@ function unlinkTicket(id, relationship) {
       type: 'DELETE',
       contentType: 'application/json',
       data: JSON.stringify({
-        "tags": [thisTicketTagText]
+        "tags": [thisTicketTagText, thisTicketRelationshipTag]
       })
     }).then(
       function(data, response) {
