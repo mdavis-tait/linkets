@@ -208,8 +208,8 @@ function linkTicket(id, relationship) {
     }
     var externalTicketTagText = 'lnkt:' + invertRelationship(relationship) + ':' + this_ticket_id;
     var thisTicketTagText = 'lnkt:' + relationship + ':' + id;
-    var externalTicketRelationshipTag = 'lnkt:' + invertRelationship(relationship);
-    var thisTicketRelationshipTag = 'lnkt:' + relationship;
+    var externalTicketRelationshipTag = 'lnkt-' + invertRelationship(relationship);
+    var thisTicketRelationshipTag = 'lnkt-' + relationship;
     if (debug) {
       console.log(externalTicketTagText);
       console.log(thisTicketTagText);
@@ -283,8 +283,8 @@ function unlinkTicket(id, relationship) {
     }
     var externalTicketTagText = 'lnkt:' + invertRelationship(relationship) + ':' + this_ticket_id;
     var thisTicketTagText = 'lnkt:' + relationship + ':' + id;
-    var externalTicketRelationshipTag = 'lnkt:' + invertRelationship(relationship);
-    var thisTicketRelationshipTag = 'lnkt:' + relationship;
+    var externalTicketRelationshipTag = 'lnkt-' + invertRelationship(relationship);
+    var thisTicketRelationshipTag = 'lnkt-' + relationship;
     if (debug) {
       console.log(externalTicketTagText);
       console.log(thisTicketTagText);
